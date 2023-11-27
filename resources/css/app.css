@@ -1,0 +1,93 @@
+/*-------------------------- Общие стили -----------------------*/
+
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap");
+* {
+    margin: 0;
+}
+
+.container {
+    margin: 0 auto;
+    width: 1170px;
+    padding: 0 15px;
+}
+
+li {
+    list-style: none;
+}
+
+.main_title {
+    font-family: "Montserrat", sans-serif;
+    font-size: 32px;
+    margin-bottom: 100px;
+}
+
+.main_subtitle {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    color: #7d8f99;
+    padding: 0 30px 40px;
+    line-height: 1.4;
+    letter-spacing: 0.5px;
+}
+
+.btn {
+    padding: 13px 30px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.btn_orange {
+    background-color: #ffa51d;
+    text-transform: capitalize;
+}
+
+.fontInter {
+    font-family: Inter;
+    font-weight: 600;
+}
+
+.fontMontserrat {
+    font-family: Montserrat, sans-serif;
+}
+
+.btnBlue {
+    border: none;
+    border-radius: 68px;
+    padding: 10px 16px;
+    background-color: #2b7af1;
+    color: white;
+    font-family: Inter;
+    font-weight: 600;
+}
+
+.titleMonserrat {
+    font-family: Montserrat, sans-serif;
+    color: #2b7af1;
+    letter-spacing: -2%;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.titleMonserrat--small {
+    font-size: 20px;
+    font-weight: 800;
+    font-family: Montserrat, sans-serif;
+    color: #2b7af1;
+    letter-spacing: -2%;
+}
+
+.titleMonserrat--white {
+    color: white;
+    width: 500px;
+}
+
+.subtitleRoboto {
+    letter-spacing: -2%;
+    text-align: justify;
+    font-family: Roboto, sans-serif;
+    font-size: 20px;
+    line-height: 150%;
+}
