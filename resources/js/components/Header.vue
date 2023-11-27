@@ -3,7 +3,7 @@
         <div class="navbar__contacts"></div>
         <div class="navbar container">
             <div class="navbar__logo">
-                <img src="../../../../festival/public/img/logo.png" alt="" />
+                <img src="../../../public/img/logo.png" alt="" />
             </div>
             <ul class="navbar__list">
                 <div v-for="folder in folders" :key="folder">
@@ -36,7 +36,7 @@
             </ul>
             <div class="search">
                 <img
-                    src="../../../../festival/public/img/header-search.png"
+                    src="../../../public/img/header-search.png"
                     alt=""
                 />
             </div>

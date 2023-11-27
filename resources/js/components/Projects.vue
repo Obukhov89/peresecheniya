@@ -35,7 +35,7 @@
                     </div>
                 </div>
                 <img
-                    src="../../../../festival/public/img/projectsBaloons.jpg"
+                    src="../../../public/img/projectsBaloons.jpg"
                     alt=""
                 />
             </div>

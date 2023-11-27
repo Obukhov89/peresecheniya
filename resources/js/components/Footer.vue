@@ -12,7 +12,7 @@
                 <a href=""
                     ><img
                         class="recent_post_img"
-                        src="../../../../festival/public/img/footer.jpg"
+                        src="../../../public/img/footer.jpg"
                         alt=""
                 /></a>
                 <a href="" class="main_subtitle"
