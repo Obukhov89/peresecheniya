@@ -1,8 +1,7 @@
 <template>
     <div class="wrapper">
         <div class="container get_started">
-            <a href="#" class="btn btn_blue">Get Started</a>
-            <p>LIVE EVERY DAY AS IF IT IS A FESTIVAL</p>
+            <a href="#" class="btn btn_blue">Зарегистрироваться</a>
         </div>
     </div>
 </template>

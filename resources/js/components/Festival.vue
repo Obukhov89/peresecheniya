@@ -1,7 +1,7 @@
 <template>
     <div id="festival">
         <div class="container">
-            <h1>THE COOLEST & BRIGHT FESTIVAL</h1>
+            <h1>Номинации</h1>
             <div class="festival__grid">
                 <Card v-for="card in cards" :key="card">
                     <div class="card">
