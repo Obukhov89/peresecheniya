@@ -1,5 +1,5 @@
 <template>
-    <Header />
+
     <MainPage />
 
     <!-- <Footer /> -->
