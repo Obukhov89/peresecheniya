@@ -60,7 +60,9 @@ export default {
     font-weight: 600;
 }
 .navbar__item {
+    text-decoration: none;
     padding-left: 20px;
+    color: #222222;
 }
 .navbar__item_dropdown_item {
     color: rgb(255, 255, 255);
