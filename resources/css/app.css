@@ -37,6 +37,8 @@ li {
     padding: 13px 30px;
     text-decoration: none;
     color: #fff;
+    width: 200px;
+    margin: 2rem 0 0 15px;
 }
 
 .btn_orange {

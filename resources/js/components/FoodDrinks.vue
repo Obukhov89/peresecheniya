@@ -1,7 +1,7 @@
 <template>
     <div id="food_drinks">
         <div class="container">
-            <h1 class="main_title">FOOD & DRINKS</h1>
+            <h1 class="main_title">Участники</h1>
             <div class="food_drinks__grid">
                 <Card v-for="card in cards" :key="card">
                     <div class="card">
@@ -9,7 +9,7 @@
                 ></Card>
             </div>
             <div class="btn">
-                <a href="#" class="btn btn_orange">view all projects</a>
+                <a href="#" class="btn btn_orange">Регистрация</a>
             </div>
         </div>
     </div>
@@ -23,76 +23,34 @@ export default {
         return {
             cards: [
                 {
-                    image: "img/festivalCard1.jpg",
-                    card__title: "free fall",
-                    card__subtitle:
-                        "Neque porro quisquam est, qui dolor emr ipsum quia dolor sit amet, consec tetur is adipisci velit, sed quia non num.",
+                    image: "img/avatar.png",
                 },
                 {
-                    image: "img/festivalCard1.jpg ",
-                    card__title: "carousel",
-                    card__subtitle:
-                        "Neque porro quisquam est, qui dolor emr ipsum quia dolor sit amet, consec tetur is adipisci velit, sed quia non num.",
+                    image: "img/avatar.png ",
                 },
                 {
-                    image: "img/festivalCard1.jpg ",
-                    card__title: "ROLLER COASTER",
-                    card__subtitle:
-                        "Neque porro quisquam est, qui dolor emr ipsum quia dolor sit amet, consec tetur is adipisci velit, sed quia non num.",
+                    image: "img/avatar.png ",
                 },
                 {
-                    image: "img/festivalCard1.jpg ",
-                    card__title: "HANGING CAROUSEL",
-                    card__subtitle:
-                        "Neque porro quisquam est, qui dolor emr ipsum quia dolor sit amet, consec tetur is adipisci velit, sed quia non num.",
+                    image: "img/avatar.png ",
                 },
                 {
-                    image: "img/festivalCard1.jpg ",
-                    card__title: "FUUNY GLASSES",
-                    card__subtitle:
-                        "Neque porro quisquam est, qui dolor emr ipsum quia dolor sit amet, consec tetur is adipisci velit, sed quia non num.",
+                    image: "img/avatar.png ",
                 },
                 {
-                    image: "img/festivalCard1.jpg ",
-                    card__title: "GIGGLE WHEEL",
-                    card__subtitle:
-                        "Neque porro quisquam est, qui dolor emr ipsum quia dolor sit amet, consec tetur is adipisci velit, sed quia non num.",
+                    image: "img/avatar.png ",
+
                 },
                 {
-                    image: "img/festivalCard1.jpg ",
-                    card__title: "PETTING ZOO",
-                    card__subtitle:
-                        "Neque porro quisquam est, qui dolor emr ipsum quia dolor sit amet, consec tetur is adipisci velit, sed quia non num.",
+                    image: "img/avatar.png ",
+
                 },
                 {
-                    image: "img/festivalCard1.jpg ",
-                    card__title: "ROCK CLIMBING WALL",
-                    card__subtitle:
-                        "Neque porro quisquam est, qui dolor emr ipsum quia dolor sit amet, consec tetur is adipisci velit, sed quia non num.",
+                    image: "img/avatar.png ",
+
                 },
                 {
-                    image: "img/festivalCard1.jpg ",
-                    card__title: "GO CART",
-                    card__subtitle:
-                        "Neque porro quisquam est, qui dolor emr ipsum quia dolor sit amet, consec tetur is adipisci velit, sed quia non num.",
-                },
-                {
-                    image: "img/festivalCard1.jpg ",
-                    card__title: "OUR FAVORITE ARTISTS",
-                    card__subtitle:
-                        "Neque porro quisquam est, qui dolor emr ipsum quia dolor sit amet, consec tetur is adipisci velit, sed quia non num.",
-                },
-                {
-                    image: "img/festivalCard1.jpg ",
-                    card__title: "STREET CULT SHOW",
-                    card__subtitle:
-                        "Neque porro quisquam est, qui dolor emr ipsum quia dolor sit amet, consec tetur is adipisci velit, sed quia non num.",
-                },
-                {
-                    image: "img/festivalCard1.jpg ",
-                    card__title: "THE BEST MUSICIANS",
-                    card__subtitle:
-                        "Neque porro quisquam est, qui dolor emr ipsum quia dolor sit amet, consec tetur is adipisci velit, sed quia non num.",
+                    image: "img/avatar.png ",
                 },
             ],
         };
@@ -107,6 +65,7 @@ export default {
 
 .main_title {
     text-align: center;
+    text-transform: uppercase;
 }
 .food_drinks__grid {
     display: grid;

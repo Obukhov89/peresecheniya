@@ -1,12 +1,7 @@
 <template>
     <div id="experts">
         <div class="container">
-            <h1 class="main_title">FESTIVAL CELEBRATION EXPERTS</h1>
-            <p class="main_subtitle experts_subtitle">
-                Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
-                te consec tetur, adipisci velit, sed quia non numquam eius modi
-                tempora incidunt
-            </p>
+            <h1 class="main_title">жюри</h1>
             <div class="food_drinks__grid">
                 <Card v-for="expert in experts" :key="expert">
                     <div class="card">

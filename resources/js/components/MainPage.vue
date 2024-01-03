@@ -5,7 +5,6 @@
     <Festival></Festival>
     <Projects />
     <food-drinks />
-    <Price />
     <Experts />
     <Celebration />
     <Footer></Footer>

@@ -23,92 +23,38 @@ export default {
         return {
             cards: [
                 {
-                    image: "img/festivalCard1.jpg",
-                    card__title: "free fall",
+                    image: "img/guitar.png",
+                    card__title: "Автор",
                     card__subtitle:
                         "Neque porro quisquam est, qui dolor emr ipsum quia dolor sit amet, consec tetur is adipisci velit, sed quia non num.",
                 },
                 {
-                    image: "img/festivalCard1.jpg ",
-                    card__title: "carousel",
+                    image: "img/guitar.png ",
+                    card__title: "Исполнитель",
                     card__subtitle:
                         "Neque porro quisquam est, qui dolor emr ipsum quia dolor sit amet, consec tetur is adipisci velit, sed quia non num.",
                 },
                 {
-                    image: "img/festivalCard1.jpg ",
-                    card__title: "ROLLER COASTER",
+                    image: "img/guitar.png ",
+                    card__title: "Композитор",
                     card__subtitle:
                         "Neque porro quisquam est, qui dolor emr ipsum quia dolor sit amet, consec tetur is adipisci velit, sed quia non num.",
                 },
                 {
-                    image: "img/festivalCard1.jpg ",
-                    card__title: "HANGING CAROUSEL",
+                    image: "img/guitar.png ",
+                    card__title: "Дуэт",
                     card__subtitle:
                         "Neque porro quisquam est, qui dolor emr ipsum quia dolor sit amet, consec tetur is adipisci velit, sed quia non num.",
                 },
                 {
-                    image: "img/festivalCard1.jpg ",
-                    card__title: "FUUNY GLASSES",
+                    image: "img/guitar.png ",
+                    card__title: "Ансамбль",
                     card__subtitle:
                         "Neque porro quisquam est, qui dolor emr ipsum quia dolor sit amet, consec tetur is adipisci velit, sed quia non num.",
                 },
                 {
-                    image: "img/festivalCard1.jpg ",
-                    card__title: "GIGGLE WHEEL",
-                    card__subtitle:
-                        "Neque porro quisquam est, qui dolor emr ipsum quia dolor sit amet, consec tetur is adipisci velit, sed quia non num.",
-                },
-                {
-                    image: "img/festivalCard1.jpg ",
-                    card__title: "PETTING ZOO",
-                    card__subtitle:
-                        "Neque porro quisquam est, qui dolor emr ipsum quia dolor sit amet, consec tetur is adipisci velit, sed quia non num.",
-                },
-                {
-                    image: "img/festivalCard1.jpg ",
-                    card__title: "ROCK CLIMBING WALL",
-                    card__subtitle:
-                        "Neque porro quisquam est, qui dolor emr ipsum quia dolor sit amet, consec tetur is adipisci velit, sed quia non num.",
-                },
-                {
-                    image: "img/festivalCard1.jpg ",
-                    card__title: "GO CART",
-                    card__subtitle:
-                        "Neque porro quisquam est, qui dolor emr ipsum quia dolor sit amet, consec tetur is adipisci velit, sed quia non num.",
-                },
-                {
-                    image: "img/festivalCard1.jpg ",
-                    card__title: "OUR FAVORITE ARTISTS",
-                    card__subtitle:
-                        "Neque porro quisquam est, qui dolor emr ipsum quia dolor sit amet, consec tetur is adipisci velit, sed quia non num.",
-                },
-                {
-                    image: "img/festivalCard1.jpg ",
-                    card__title: "STREET CULT SHOW",
-                    card__subtitle:
-                        "Neque porro quisquam est, qui dolor emr ipsum quia dolor sit amet, consec tetur is adipisci velit, sed quia non num.",
-                },
-                {
-                    image: "img/festivalCard1.jpg ",
-                    card__title: "THE BEST MUSICIANS",
-                    card__subtitle:
-                        "Neque porro quisquam est, qui dolor emr ipsum quia dolor sit amet, consec tetur is adipisci velit, sed quia non num.",
-                },
-                {
-                    image: "img/festivalCard1.jpg ",
-                    card__title: "THE COOLEST DJS",
-                    card__subtitle:
-                        "Neque porro quisquam est, qui dolor emr ipsum quia dolor sit amet, consec tetur is adipisci velit, sed quia non num.",
-                },
-                {
-                    image: "img/festivalCard1.jpg ",
-                    card__title: "AIR BALLOON FLIGHT",
-                    card__subtitle:
-                        "Neque porro quisquam est, qui dolor emr ipsum quia dolor sit amet, consec tetur is adipisci velit, sed quia non num.",
-                },
-                {
-                    image: "img/festivalCard1.jpg ",
-                    card__title: "FERRIS WHEEL RIDE",
+                    image: "img/guitar.png ",
+                    card__title: "Поэт",
                     card__subtitle:
                         "Neque porro quisquam est, qui dolor emr ipsum quia dolor sit amet, consec tetur is adipisci velit, sed quia non num.",
                 },

@@ -1,11 +1,9 @@
 <template>
     <div id="projects-greyModule">
+        <h1 class="main_title contest">Он-лайн конкурс</h1>
         <div class="container">
             <div class="card-wrapper">
-                <Card v-for="card in cards" :key="card">
-                    <img :src="card.image" alt="" />
-                    <h2 class="main_title">{{ card.card__title }}</h2>
-                </Card>
+                <img src="../../../public/img/ural.png">
             </div>
         </div>
         <div class="projects__counter">
@@ -13,28 +11,6 @@
                 <h2 class="main_title">{{ count.number }}</h2>
                 <p class="main_subtitle">{{ count.counters__title }}</p>
             </Counter>
-        </div>
-        <div class="testimonials">
-            <h1 class="main_title">TESTIMONIALS FROM OUR CLIENTS</h1>
-            <p class="main_subtitle">
-                Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
-                te consec tetur, adipisci velit, sed quia non numquam eius modi
-                tempora incidunt
-            </p>
-
-            <Clientcard v-for="clientcard in clientcards" :key="clientcard">
-                <div class="clientcard">
-                    <img :src="clientcard.image" alt="" />
-
-                    <p class="main_title">{{ clientcard.name }}</p>
-
-                    <p class="main_subtitle">{{ clientcard.profession }}</p>
-
-                    <p class="main_subtitle">
-                        {{ clientcard.description }}
-                    </p>
-                </div>
-            </Clientcard>
         </div>
     </div>
 </template>
@@ -44,40 +20,22 @@ export default {
     name: "ProjectsGreyModule",
     data() {
         return {
-            cards: [
-                {
-                    image: "img/cheerAndParty.jpg",
-                    card__title: "cheer and party",
-                },
-                {
-                    image: "img/birthdays.jpg ",
-                    card__title: "birthdays",
-                },
-                {
-                    image: "img/rolling.jpg ",
-                    card__title: "rolling",
-                },
-                {
-                    image: "img/attractions.jpg ",
-                    card__title: "attractions",
-                },
-            ],
             counters: [
                 {
-                    number: "75",
-                    counters__title: "YEARS OF EXPERIENCE",
+                    number: ">50",
+                    counters__title: "участников",
                 },
                 {
-                    number: "550",
-                    counters__title: "FESTIVAL CELEBRATION",
+                    number: ">500",
+                    counters__title: "зрителей",
                 },
                 {
-                    number: "30",
-                    counters__title: "RUNNING PROJECTS",
+                    number: ">30",
+                    counters__title: "призов",
                 },
                 {
-                    number: "600",
-                    counters__title: "QUALIFIED WORKERS",
+                    number: ">10",
+                    counters__title: "известных авторов",
                 },
             ],
             clientcards: [
@@ -113,9 +71,7 @@ export default {
     gap: 30px;
     margin-bottom: 90px;
 }
-.card-wrapper img {
-    height: 260px;
-}
+
 .main_title {
     font-size: 30px;
     text-transform: capitalize;
@@ -130,6 +86,10 @@ export default {
 counter {
     color: rgb(255, 255, 255);
     padding: 100px 0 90px;
+}
+
+.contest{
+    text-transform: uppercase;
 }
 
 counter .main_title {

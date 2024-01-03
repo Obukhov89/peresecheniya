@@ -1,29 +1,20 @@
 <template>
     <div id="celebration">
         <div class="container">
-            <h1 class="main_title">FESTIVAL CELEBRATION</h1>
+            <h1 class="main_title">форма регистрации</h1>
             <div class="dropdown_questions">
-                <div class="main_subtitle question">
-                    <span>﹀</span> How Can I Find the Schedule of Live Events??
-                </div>
-                <div class="main_subtitle question">
-                    <span>﹀</span> Whit is the Procedure to Purchase Tickets?
-                </div>
-                <div class="main_subtitle question">
-                    <span>﹀</span> Can i Leave the Festival and Come Back?
-                </div>
-                <div class="main_subtitle question">
-                    <span>﹀</span> The Essential Guide to Upcomming Festivals
-                </div>
+                <form class="registration">
+                    <label for="fio" class="label_reg">ФИО:</label>
+                    <input class="inputReg" type="text" id="fio" name="fio">
+                    <label for="tel" class="label_reg">Телефон:</label>
+                    <input class="inputReg" type="text" id="tel" >
+                    <label class="label_reg" for="email">Email:</label>
+                    <input type="text" class="inputReg" id="email">
+                    <button class="btn btn_orange">Отправить</button>
+                </form>
             </div>
         </div>
         <div class="projects__counter">
-            <div class="testimonials">
-                <h2 class="main_title">
-                    THE ESSENTIAL GUIDE TO UPCOMING FESTIVALS
-                </h2>
-                <button class="btn btn_orange">Request a qoute</button>
-            </div>
         </div>
     </div>
 </template>
@@ -56,12 +47,27 @@ export default {
 
 .main_title {
     font-size: 36px;
-    text-transform: capitalize;
     text-align: center;
     margin: 20px 0;
-    color: #ffffff;
+    color: #282828;
     line-height: 1.5;
+    text-transform: uppercase;
 }
+
+.registration{
+    display: flex;
+    flex-direction: column;
+    background-color: #e5e5e595;
+}
+
+.inputReg{
+    padding-left: 20px;
+    width: inherit;
+    height: 45px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
 .projects__counter {
     background-image: url("../img/../../../../festival/public/img/celebrateBanner.jpg");
     display: flex;
@@ -77,5 +83,10 @@ export default {
     border-radius: 20px;
     border: none;
     text-transform: uppercase;
+}
+
+.label_reg{
+    font-family: "Montserrat", sanr-serif;
+    padding: 5px;
 }
 </style>

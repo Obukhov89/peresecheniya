@@ -1,41 +1,11 @@
 <template>
     <div id="projects">
         <div class="container">
-            <h1 class="main_title">BIRTHDAY PARTIES IN OUR PROJECTS</h1>
-            <p class="main_subtitle">
-                You will remember this wonderful holiday!
-            </p>
+            <h1 class="main_title">Организаторы фестиваля</h1>
             <div class="projects__content">
-                <div class="projects__content__col1">
-                    <h4>You will remember this wonderful holiday</h4>
-                    <p class="main_subtitle">
-                        Neque porro quisquam est, qui dolorem ipsum quia dolor
-                        sit amet, te consec tetur, adipisci velit, sed quia non
-                        numquam eius modi tempora incidunt ut labore et dolore
-                        magnam aliquam quaerat voluptatem. tempora incidunt ut
-                        labore et dolore magnam aliquam quaerat.
-                    </p>
-                    <div class="projects_links">
-                        <li>
-                            <a href=""
-                                >You will remember this wonderful holiday!</a
-                            ><br />
-                        </li>
-                        <li>
-                            <a href=""
-                                >Let’s arrange an unforgettable birthday!</a
-                            ><br />
-                        </li>
-                        <li>
-                            <a href="">
-                                Interesting entertainment attractions, and
-                                balloons are waiting for you!
-                            </a>
-                        </li>
-                    </div>
-                </div>
+                <img src="../../../public/img/sails.png">
                 <img
-                    src="../../../public/img/projectsBaloons.jpg"
+                    src="../../../public/img/peresecheniya.png"
                     alt=""
                 />
             </div>
@@ -85,6 +55,7 @@ export default {
 
 .projects__content {
     display: flex;
+
     justify-content: space-between;
     gap: 30px;
     margin-top: 70px;
