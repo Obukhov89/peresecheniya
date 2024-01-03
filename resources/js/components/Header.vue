@@ -8,11 +8,11 @@
             </div>
             <ul class="navbar__list">
                 <div v-for=" folder in folders" :key="folder">
-                    <div
+                    <router-link :to="{name: folder.nameComponent, hash:folder.hash }"
                         class="navbar__item navbar__item_dropdown"
                     >
                         {{folder.name}}
-                    </div>
+                    </router-link>
                 </div>
             </ul>
         </div>

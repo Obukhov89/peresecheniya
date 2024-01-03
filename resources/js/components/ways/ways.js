@@ -1,27 +1,30 @@
 let ways = [
     {
         name:'Номинации',
-        nameComponent: ''
+        nameComponent: 'Festival',
+        hash: '#festival'
     },
     {
         name: 'Организаторы',
-        nameComponent: ''
+        nameComponent: 'Projects',
+        hash: '#projects'
     },
     {
         name: 'Положение',
-        nameComponent: ''
+
     },
     {
         name: 'Онлайн-конкурс',
-        nameComponent: ''
+        nameComponent: 'ProjectsGreyModule',
+        hash: '#projectsgreymodule'
     },
     {
         name: 'Участники',
-        nameComponent: ''
     },
     {
         name: 'Регистрация',
-        nameComponent: ''
+        nameComponent: 'Celebration',
+        hash: '#celebration'
     },
     {
         name: 'Контакты',

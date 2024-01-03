@@ -9,7 +9,7 @@
                 ></Card>
             </div>
             <div class="btn">
-                <a href="#" class="btn btn_orange">Регистрация</a>
+                <router-link :to="{name: 'Celebration', hash:'#celebration'}" class="btn btn_orange">Регистрация</router-link>
             </div>
         </div>
     </div>

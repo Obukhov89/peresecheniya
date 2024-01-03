@@ -1,7 +1,7 @@
 <template>
     <div class="wrapper">
         <div class="container get_started">
-            <a href="#" class="btn btn_blue">Зарегистрироваться</a>
+            <router-link :to="{name: 'Celebration', hash:'#celebration'}" href="#" class="btn btn_blue">Зарегистрироваться</router-link>
         </div>
     </div>
 </template>
