@@ -3,25 +3,79 @@
         <div class="container">
             <h1 class="main_title">форма регистрации</h1>
             <div class="dropdown_questions">
-                <form class="registration">
+                <form @submit.prevent="onsubmit" class="registration">
+                    <div class="select_role">
+                        <p class="label_reg">
+                            Зарегистрироваться как:
+                        </p>
+                        <label class="label_reg">Участник</label>
+                        <input type="radio" v-model="data.id_role" :value="2">
+                        <label class="label_reg">Зритель</label>
+                        <input type="radio" v-model="data.id_role"  :value="3">
+                    </div>
+
                     <label for="fio" class="label_reg">ФИО:</label>
-                    <input class="inputReg" type="text" id="fio" name="fio">
+                    <input class="inputReg" type="text" id="fio" name="fio" v-model="data.fio">
                     <label for="tel" class="label_reg">Телефон:</label>
-                    <input class="inputReg" type="text" id="tel" >
+                    <input class="inputReg" type="text" id="tel" v-model="data.tel">
                     <label class="label_reg" for="email">Email:</label>
-                    <input type="text" class="inputReg" id="email">
-                    <button class="btn btn_orange">Отправить</button>
+                    <input type="text" class="inputReg" id="email" v-model="data.email">
+                    <button @click="registration" class="btn btn_orange">Отправить</button>
                 </form>
             </div>
         </div>
         <div class="projects__counter">
         </div>
     </div>
+    <Modal v-if="info_reg">
+        <template v-slot:heading>
+            <p class="note_of_reg">Заявка отправлена!</p>
+        </template>
+        <template v-slot:info>
+            <p class="text_note">
+                Заявка на регистрацию на портале отправлена успешно.<br> Ожидайте письмо администрации о решении.
+            </p>
+        </template>
+        <template v-slot:button>
+            <button @click="close_info" class="btn_ok">ок</button>
+        </template>
+    </Modal>
 </template>
 
 <script>
+import axios from "axios";
+import Modal from "../modal/Modal.vue";
+import router from "../router";
+
 export default {
     name: "Celebration",
+    components: {Modal},
+    data(){
+        return{
+            info_reg: false,
+            data:{
+                fio:'',
+                tel:'',
+                email:'',
+                id_role:2,
+            }
+        }
+    },
+    methods:{
+        registration(){
+            axios.post('/registration', this.data).then((response) => {
+                this.info_reg = true
+            })
+        },
+
+        close_info(){
+            this.info_reg = false
+            this.data.fio = '';
+            this.data.email = '';
+            this.data.tel = '';
+            router.push({name: "Header", hash:"#header"})
+        }
+    }
 };
 </script>
 
@@ -60,6 +114,10 @@ export default {
     background-color: #e5e5e595;
 }
 
+.select_role{
+    display: flex;
+}
+
 .inputReg{
     padding-left: 20px;
     width: inherit;
@@ -68,8 +126,35 @@ export default {
     border-radius: 5px;
 }
 
+.text_note{
+    padding-top: 2rem;
+    text-align: center;
+    font-family: "Montserrat", sanr-serif;
+    font-size: 16px;
+}
+
+.note_of_reg{
+    text-align: center;
+    font-family: "Montserrat", sanr-serif;
+    font-size: 20px;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.btn_ok{
+    margin: 45px auto;
+    width: 150px;
+    height: 35px;
+    border: none;
+    border-radius: 3px;
+    background-color: #ffa51d;
+    font-family: "Montserrat", sanr-serif;
+    font-size: 20px;
+    color: #ffffff;
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.3);
+}
+
 .projects__counter {
-    background-image: url("../img/../../../../festival/public/img/celebrateBanner.jpg");
     display: flex;
     justify-content: space-around;
 }

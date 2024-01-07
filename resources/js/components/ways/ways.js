@@ -30,6 +30,9 @@ let ways = [
         name: 'Контакты',
         nameComponent: ''
     },
+    {
+        name: 'Вход'
+    }
 ];
 
 export default ways;

@@ -24,13 +24,7 @@ import ways from "./ways/ways.js";
 export default {
     name: "Header",
     methods: {
-        toggle: function (idname) {
-            if (document.getElementById(idname).style.display == "none") {
-                document.getElementById(idname).style.display = "inline";
-            } else {
-                document.getElementById(idname).style.display = "none";
-            }
-        },
+
     },
     data() {
         return {
