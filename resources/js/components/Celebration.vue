@@ -20,7 +20,7 @@
                     <input class="inputReg" type="text" id="tel" v-model="data.tel">
                     <label class="label_reg" for="email">Email:</label>
                     <input type="text" class="inputReg" id="email" v-model="data.email">
-                    <button @click="registration" class="btn btn_orange">Отправить</button>
+                    <button @click="registration" class="btn_orange">Отправить</button>
                 </form>
             </div>
         </div>
@@ -165,7 +165,13 @@ export default {
     margin: 0 auto;
 }
 .btn_orange {
-    border-radius: 20px;
+    font-family: "Montserrat", sanr-serif;
+    font-size: 16px;
+    color: #ffffff;
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.3);
+    margin:1rem;
+    width: 150px;
+    height: 35px;
     border: none;
     text-transform: uppercase;
 }

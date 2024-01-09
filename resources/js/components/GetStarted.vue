@@ -1,31 +1,34 @@
 <template>
-    <div class="wrapper">
+    <div  class="wrapper">
         <div class="container get_started">
-            <router-link :to="{name: 'Celebration', hash:'#celebration'}" href="#" class="btn btn_blue">Зарегистрироваться</router-link>
+            <button class="btn btn_blue"><a class="link_registration" href="#celebration">Зарегистрироваться</a></button>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: "About",
+    name: "GetStarted",
 };
 </script>
 
 <style scoped>
-.btn {
-    padding: 13px 30px;
+.link_registration {
     text-decoration: none;
     color: #fff;
 }
 
 .btn_blue {
+
+    width: 200px;
+    height: 35px;
+    border: none;
     background-color: #337ab7;
     text-transform: uppercase;
     font-size: 16px;
     font-family: "Open Sans", sans-serif;
     margin: 0 15px;
-    font-weight: 500;
+
 }
 .wrapper {
     background-color: #ffa51d;

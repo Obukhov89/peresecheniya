@@ -7,12 +7,15 @@
                 <p class="logo_text">Бард-фест</p>
             </div>
             <ul class="navbar__list">
-                <div v-for=" folder in folders" :key="folder">
-                    <router-link :to="{name: folder.nameComponent, hash:folder.hash }"
-                        class="navbar__item navbar__item_dropdown"
-                    >
-                        {{folder.name}}
-                    </router-link>
+                <div >
+                    <a href="#festival" class="navbar__item navbar__item_dropdown">Номинации</a>
+                    <a href="#projects" class="navbar__item navbar__item_dropdown">Организаторы</a>
+                    <a href="#projects-greyModule" class="navbar__item navbar__item_dropdown">Он-лайн конкурс</a>
+                    <a href="#" class="navbar__item navbar__item_dropdown">Положение</a>
+                    <a href="#entrants" class="navbar__item navbar__item_dropdown">Участники</a>
+                    <a href="#experts" class="navbar__item navbar__item_dropdown">Жюри</a>
+                    <a href="#" class="navbar__item navbar__item_dropdown">Контакты</a>
+                    <a @click="goAuth" href="#" class="navbar__item navbar__item_dropdown">Вход</a>
                 </div>
             </ul>
         </div>
@@ -20,16 +23,18 @@
 </template>
 
 <script>
-import ways from "./ways/ways.js";
+import router from "../router";
+
 export default {
     name: "Header",
-    methods: {
-
-    },
     data() {
         return {
-            folders: ways
         };
+    },
+    methods: {
+        goAuth(){
+            router.push({name:'Login'})
+        }
     },
 };
 </script>

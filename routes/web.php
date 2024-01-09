@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,9 @@ Route::get('/', function () {
 });
 
 Route::post('/registration', [RegistrationController::class, 'new_registration']);
+Route::get('regAdmin', [RegistrationController::class, 'registrationAdmin']);
+Route::post('/login', [UserController::class, 'login']);
+
+Route::get('/{vue_capture?}', function () {
+    return view('app');
+})->where('vue_capture', '[\/\w\.-]*');

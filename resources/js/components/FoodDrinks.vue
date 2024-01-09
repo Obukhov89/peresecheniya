@@ -1,5 +1,5 @@
 <template>
-    <div id="food_drinks">
+    <div id="entrants">
         <div class="container">
             <h1 class="main_title">Участники</h1>
             <div class="food_drinks__grid">
@@ -8,9 +8,7 @@
                         <img :src="card.image" alt="" /></div
                 ></Card>
             </div>
-            <div class="btn">
-                <router-link :to="{name: 'Celebration', hash:'#celebration'}" class="btn btn_orange">Регистрация</router-link>
-            </div>
+                <button class="btn_orange"><a class="link_registration" href="#celebration">Зарегистрироваться</a></button>
         </div>
     </div>
 </template>
@@ -77,6 +75,12 @@ export default {
 .card {
     box-shadow: 0px 5px 30px rgba(180, 180, 180, 0.381);
 }
+
+.link_registration {
+    text-decoration: none;
+    color: #fff;
+}
+
 .card img {
     width: 360px;
     object-fit: cover;
@@ -84,10 +88,15 @@ export default {
     margin: 0;
 }
 .btn_orange {
+    font-family: "Montserrat", sanr-serif;
+    font-size: 16px;
+    color: #ffffff;
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.3);
+    margin:1rem;
+    width: 230px;
+    height: 35px;
+    border: none;
     text-transform: uppercase;
-    font-family: "Open Sans", sans-serif;
-    font-size: 13px;
-    font-weight: 600;
 }
 .btn {
     text-align: center;
