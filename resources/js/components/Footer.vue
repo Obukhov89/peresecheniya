@@ -54,7 +54,6 @@ export default {
     justify-content: space-between;
     align-items: center;
     padding: 110px 0 90px;
-    align-items: flex-start;
 }
 .main_title {
     color: #fff;

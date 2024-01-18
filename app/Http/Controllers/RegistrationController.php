@@ -6,8 +6,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Registration;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Testing\Fluent\Concerns\Has;
 
 
 class RegistrationController extends Controller
@@ -32,4 +34,12 @@ class RegistrationController extends Controller
         return $newItem;
     }
 
+//    public function reg_admin(){
+//        $user = new User();
+//
+//        $user->name = 'Иванов Иван Иванович';
+//        $user->email = 'admin@example.com';
+//        $user->password = Hash::make('alk78NN_');
+//        $user->save();
+//    }
 }
