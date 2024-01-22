@@ -15,7 +15,7 @@
 
         <div class="author_content">
             <div class="content" v-if="visible_text">
-                <table class="table_text" v-if="arr_scripts.length !== 0">
+                <table class="table_text" v-if="arr_scripts !== undefined">
                     <tr v-for="(text, number) in arr_scripts">
                         <td class="counter_text">{{number + 1}}</td>
                         <td class="text_item">{{text.name_composition}}</td>
@@ -26,7 +26,7 @@
                 <p v-else class="name_heading">Здесь нет текста</p>
             </div>
             <div class="content" v-else>
-                <table class="table_audio" v-if="arr_audio.length !== 0">
+                <table class="table_audio" v-if="arr_audio !== undefined">
                     <tr v-for="(audio, number) in arr_audio" :key="audio.id">
                         <td class="counter_track">{{number + 1}}</td>
                         <td class="audio_item">
@@ -142,20 +142,20 @@ export default {
 
             axios.post('/get_compositions', data).then((response) => {
                 console.log(response.data)
-
-                this.arr_scripts = response.data.text
-                response.data.audio.forEach((item, index) => {
-                    let file_way = `../../../../../storage/app/compositions/${item.id_author}/audio/${item.id}.mp3`
-                    console.log(file_way)
-                    this.arr_audio.push(
-                        {
-                            id: item.id,
-                            author: `${this.getLastName} ${this.getFirstName}`,
-                            name_composition: item.name_composition,
-                            src: new URL(file_way, import.meta.url).href
-                        })
-                })
-
+                if (response.data !== null){
+                    this.arr_scripts = response.data.text
+                    response.data.audio.forEach((item, index) => {
+                        let file_way = `../../../../../storage/app/compositions/${item.id_author}/audio/${item.id}.mp3`
+                        console.log(file_way)
+                        this.arr_audio.push(
+                            {
+                                id: item.id,
+                                author: `${this.getLastName} ${this.getFirstName}`,
+                                name_composition: item.name_composition,
+                                src: new URL(file_way, import.meta.url).href
+                            })
+                    })
+                }
             })
         },
 
