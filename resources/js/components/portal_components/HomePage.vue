@@ -1,7 +1,7 @@
 <template>
     <div class="container container_content">
         <div style="height: 45px">
-            <button class="btn_admin" v-if="admin">Панель администратора</button>
+            <button class="btn_admin" @click="goAdmin" v-if="admin">Панель администратора</button>
         </div>
 
         <div class="name_container">
@@ -14,13 +14,34 @@
         </div>
 
         <div class="author_content">
-            <p v-if="visible_text" class="name_heading">Здесь нет текста</p>
-            <div v-else>
-                <p  class="name_heading">Здесь нет песен</p>
-                <audio controls title>
-                    <source src="../../../../storage/app/public/audio/1/Getting%20Along.mp3" type="audio/ogg; codecs=vorbis">
-                    <source type="audio/mpeg" src="../../../../storage/app/public/audio/1/Getting%20Along.mp3">
-                </audio>
+            <div class="content" v-if="visible_text">
+                <table class="table_text" v-if="arr_scripts.length !== 0">
+                    <tr v-for="(text, number) in arr_scripts">
+                        <td class="counter_text">{{number + 1}}</td>
+                        <td class="text_item">{{text.name_composition}}</td>
+                        <td class="btn_container"><button class="edit_btn">Редактировать</button></td>
+                        <td class="btn_container"><button class="del_btn">Удалить</button></td>
+                    </tr>
+                </table>
+                <p v-else class="name_heading">Здесь нет текста</p>
+            </div>
+            <div class="content" v-else>
+                <table class="table_audio" v-if="arr_audio.length !== 0">
+                    <tr v-for="(audio, number) in arr_audio" :key="audio.id">
+                        <td class="counter_track">{{number + 1}}</td>
+                        <td class="audio_item">
+                            <p class="title_track">{{audio.name_composition}}</p>
+                            <audio class="audio"  controls>
+                                <source :src="audio.src">
+                            </audio>
+                        </td>
+                        <td>
+                            <button class="del_btn">Удалить</button>
+                        </td>
+                    </tr>
+                </table>
+                <p v-else class="name_heading">Здесь нет песен</p>
+
             </div>
 
         </div>
@@ -54,9 +75,11 @@
 </template>
 
 <script>
+
 import {mapState} from "vuex/dist/vuex.mjs";
 import ModalLoading from "../../modal/ModalLoading.vue";
 import axios from "axios";
+import router from "../../router";
 
 export default {
     name: "HomePage",
@@ -73,7 +96,11 @@ export default {
             confirm_input: true,
             name_composition: '',
             file: null,
-            modal_add: false
+            modal_add: false,
+            arr_scripts: [],
+            arr_audio: [],
+            current: {},
+            player: new Audio()
         }
     },
     computed:{
@@ -92,19 +119,46 @@ export default {
         },
 
         getIdUser(){
-            return this.$store.state.auth.id_role
+            return this.$store.state.auth.id_user
         },
         toggle_disabled(){
-            console.log(this.name_composition.length)
             return this.confirm_input
         }
     },
     methods:{
+        goAdmin(){
+            router.push({name: 'AdminPanel'})
+        },
         printId(){
             if (this.getAdmin === 1){
                 this.admin = true
             }
         },
+        getCompositions()
+        {
+            let data = {
+                user_id: this.getIdUser
+            }
+
+            axios.post('/get_compositions', data).then((response) => {
+                console.log(response.data)
+
+                this.arr_scripts = response.data.text
+                response.data.audio.forEach((item, index) => {
+                    let file_way = `../../../../../storage/app/compositions/${item.id_author}/audio/${item.id}.mp3`
+                    console.log(file_way)
+                    this.arr_audio.push(
+                        {
+                            id: item.id,
+                            author: `${this.getLastName} ${this.getFirstName}`,
+                            name_composition: item.name_composition,
+                            src: new URL(file_way, import.meta.url).href
+                        })
+                })
+
+            })
+        },
+
         toggleComposition(instance){
             this.visible_text = instance
         },
@@ -158,6 +212,11 @@ export default {
     },
     beforeMount() {
         this.printId()
+        this.getCompositions()
+    },
+    created() {
+        this.current = this.arr_audio.id
+        this.player.src = this.arr_audio.src
     }
 }
 </script>
@@ -214,6 +273,68 @@ export default {
         box-shadow: 5px 5px 5px 0px rgba(148, 147, 147, 0.3);
     }
 
+    .table_audio{
+        padding-top: 1rem;
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .table_audio tr{
+        border-bottom: 1px solid lightgrey;
+    }
+
+    .audio{
+        width: 700px;
+    }
+    .title_track{
+        font-family: Montserrat, sans-serif;
+        font-size: 14px;
+        padding-top: 20px;
+    }
+    .edit_btn{
+        width: 140px;
+        height: 30px;
+        background-color: #ffa51d;
+        border: none;
+        color: #eeeeee;
+        border-radius: 3px;
+    }
+    .del_btn{
+        width: 140px;
+        height: 30px;
+        background-color: #9f4848;
+        border: none;
+        color: #eeeeee;
+        border-radius: 3px;
+    }
+
+    .table_text{
+        padding-top: 1rem;
+        width: 100%;
+        border-collapse: collapse;
+
+    }
+    .table_text tr{
+        border-bottom: 1px solid lightgrey;
+        text-align: center;
+        height: 55px
+
+    }
+    .btn_container{
+        width: 200px;
+    }
+    .content{
+        margin-top: 1rem;
+    }
+    .counter_text{
+        width: 80px;
+        text-align: center;
+        font-family: Montserrat, sans-serif;
+    }
+    .text_item{
+        width: 1000px;
+        font-family: Montserrat, sans-serif;
+    }
     .audio_btn
     {
         margin-left: 5px;
@@ -240,7 +361,14 @@ export default {
         text-transform: uppercase;
         box-shadow: 5px 5px 5px 0px rgba(148, 147, 147, 0.3);
     }
-
+    .counter_track{
+        width: 60px;
+        font-family: Montserrat, sans-serif;
+    }
+    .audio_item{
+        width: 70%;
+        text-align: center;
+    }
     .author_content
     {
         text-align: center;

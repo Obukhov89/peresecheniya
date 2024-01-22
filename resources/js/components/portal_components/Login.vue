@@ -40,6 +40,7 @@ export default {
                 sessionStorage.setItem('sur_name', response.data.sur_name);
                 sessionStorage.setItem('id_role', response.data.id_role)
                 sessionStorage.setItem('email', response.data.email)
+                sessionStorage.setItem('id_user', response.data.id_user)
 
                 router.push({name: 'HomePage'})
             })

@@ -30,6 +30,7 @@ class UserController
         $id_role = $user->get_user_right($id_user);
 
         $user_data = [
+            'id_user' => $id_user,
             'last_name' => $name_full[0],
             'first_name' => $name_full[1],
             'sur_name' => $name_full[2],

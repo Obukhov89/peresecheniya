@@ -21,9 +21,13 @@ Route::get('/', function () {
 });
 
 Route::post('/registration', [RegistrationController::class, 'new_registration']);
+Route::get('get_turn_request', [RegistrationController::class, 'get_turn_request']);
+Route::post('/request_accept', [RegistrationController::class, 'save_user']);
+Route::post('/request_reject', [RegistrationController::class, 'delete_request']);
 Route::get('/regAdmin', [RegistrationController::class, 'reg_admin']);
 Route::post('/login', [UserController::class, 'login']);
 Route::post('/downloadComposition', [CompositionController::class, 'download_composition', function(Request $request){}]);
+Route::post('/get_compositions', [CompositionController::class, 'get_composition_author']);
 
 Route::get('/{vue_capture?}', function () {
     return view('app');

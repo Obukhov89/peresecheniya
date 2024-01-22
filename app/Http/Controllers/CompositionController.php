@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Composition;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CompositionController extends Controller
 {
@@ -48,5 +49,33 @@ class CompositionController extends Controller
             }
             $file->move($path, $fileName);
         }
+    }
+
+    public function get_composition_author(Request $request)
+    {
+        $arr_compositions = [];
+        $query = DB::select('select * from `compositions` where `author_id` =:author_id',
+            ['author_id' => $request->user_id]);
+
+        foreach ($query as $item)
+        {
+            if ($item->type_composition == 'text'){
+                $arr_compositions['text'][] =
+                    [
+                        'id' => $item->id,
+                        'name_composition' => $item->name_composition,
+                        'id_author' => $item->author_id,
+                    ];
+            }
+            if ($item->type_composition == 'audio'){
+                $arr_compositions['audio'][] =
+                    [
+                        'id' => $item->id,
+                        'name_composition' => $item->name_composition,
+                        'id_author' => $item->author_id
+                ];
+            }
+        }
+        return $arr_compositions;
     }
 }

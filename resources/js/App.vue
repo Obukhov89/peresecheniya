@@ -25,6 +25,7 @@ export default {
                 sur_name: sessionStorage.getItem('sur_name'),
                 id_role:Number(sessionStorage.getItem('id_role')),
                 email: sessionStorage.getItem('email'),
+                id_user: sessionStorage.getItem('id_user')
             }
             this.$store.dispatch('auth/login', payload)
         }
