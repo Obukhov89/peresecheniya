@@ -34,7 +34,7 @@ class CompositionController extends Controller
         if ($request->type_content == 'text') {
             $file = $request->file('file');
             $fileName = $lastId . '.txt';
-            $path = storage_path('app/compositions/' . $request->user_id . '/text');
+            $path = storage_path('app/public/compositions/' . $request->user_id . '/text');
             if (!is_dir($path)) {
                 mkdir($path);
             }
@@ -43,7 +43,7 @@ class CompositionController extends Controller
         if ($request->type_content == 'audio') {
             $file = $request->file('file');
             $fileName = $lastId . '.mp3';
-            $path = storage_path('app/compositions/' . $request->user_id . '/audio');
+            $path = storage_path('app/public/compositions/' . $request->user_id . '/audio');
             if (!is_dir($path)) {
                 mkdir($path);
             }
@@ -77,5 +77,10 @@ class CompositionController extends Controller
             }
         }
         return $arr_compositions;
+    }
+
+    public function get_audio_file(Request $request)
+    {
+
     }
 }
