@@ -25,7 +25,7 @@ class CompositionController extends Controller
         $this->composition->save();
         $lastId = $this->composition::max('id');
 
-        $fileWay = storage_path('app/compositions/' . $request->user_id);
+        $fileWay = storage_path('app/public/compositions/' . $request->user_id);
 
         if (!is_dir($fileWay)) {
             mkdir($fileWay, 777);
@@ -82,5 +82,27 @@ class CompositionController extends Controller
     public function get_audio_file(Request $request)
     {
 
+    }
+
+    public function getArticle(Request $request)
+    {
+        $authorId = $request->author_id;
+        $textId = $request->text_id;
+        $query = DB::select("select `name_composition` from `compositions` where `id` =:id", ['id' => $textId]);
+        $art =  $this->composition->getArticle($authorId, $textId);
+
+        return [
+          'name_composition' => $query[0]->name_composition,
+          'text_composition' =>json_encode($art)
+        ];
+    }
+
+    public function editComposition(Request $request){
+
+        $authorId = $request->idAuthor;
+        $textId = $request->idText;
+        $text = $request->text;
+
+        return json_encode($this->composition->editComposition($authorId, $textId, $text));
     }
 }

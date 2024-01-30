@@ -33,7 +33,6 @@ export default {
             this.audio_list.forEach((item, idx) => {
                 let file_way =
                     new URL(`../../../../storage/app/public/compositions/${item.id_author}/audio/${item.id}.mp3`, import.meta.url)
-
                 this.tracks.push({
                     id: item.id,
                     author: `${this.getLastName} ${this.getFirstName}`,

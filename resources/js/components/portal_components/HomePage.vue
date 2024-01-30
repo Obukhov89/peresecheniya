@@ -18,7 +18,12 @@
                 <table class="table_text" v-if="arr_scripts !== undefined">
                     <tr v-for="(text, number) in arr_scripts">
                         <td class="counter_text">{{ number + 1 }}</td>
-                        <td class="text_item">{{ text.name_composition }}</td>
+                        <td class="text_item">
+                            <router-link
+                                :to="{name:'CompositionPage', query:{author_id: this.getIdUser, composition_id: text.id}}">
+                                {{ text.name_composition }}
+                            </router-link>
+                        </td>
                         <td class="btn_container">
                             <button class="edit_btn">Редактировать</button>
                         </td>
@@ -255,7 +260,7 @@ export default {
 }
 
 .table_text {
-    padding-top: 1rem;
+    margin-top: 1rem;
     width: 100%;
     border-collapse: collapse;
 
@@ -264,7 +269,7 @@ export default {
 .table_text tr {
     border-bottom: 1px solid lightgrey;
     text-align: center;
-    height: 55px
+    height: 75px
 
 }
 
