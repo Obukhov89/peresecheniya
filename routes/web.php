@@ -32,11 +32,11 @@ Route::controller(CompositionController::class)->group(function () {
     Route::post('/downloadComposition', 'download_composition');
     Route::post('/get_compositions', 'get_composition_author');
     Route::post('/get_composition', 'getArticle');
+    Route::post('/edit_composition', 'editComposition');
+    Route::post('/delete_text', 'delete_text');
+    Route::post('/delete_audio', 'delete_audio');
 });
 
-//Route::post('/downloadComposition', [CompositionController::class, 'download_composition', function(Request $request){}]);
-//Route::post('/get_compositions', [CompositionController::class, 'get_composition_author']);
-//Route::post('/get_composition', [CompositionController::class, 'getArticle']);
 
 Route::get('/{vue_capture?}', function () {
     return view('app');

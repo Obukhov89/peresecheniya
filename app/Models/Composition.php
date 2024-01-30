@@ -35,4 +35,19 @@ class Composition extends Model
 
         return $res;
     }
+
+    public function deleteComposition($textId, $authorId)
+    {
+
+        $path = storage_path('app/public/compositions/' . $authorId . '/text/' . $textId.'.txt');
+
+        return unlink($path);
+    }
+
+    public function delete_audio($audioId, $authorId)
+    {
+        $path = storage_path('app/public/compositions/' . $authorId . '/audio/' . $audioId.'.mp3');
+
+        return unlink($path);
+    }
 }

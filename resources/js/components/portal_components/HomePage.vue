@@ -3,7 +3,6 @@
         <div style="height: 45px">
             <button class="btn_admin" @click="goAdmin" v-if="admin">Панель администратора</button>
         </div>
-
         <div class="name_container">
             <p class="name_heading">{{ getFirstName }} {{ getLastName }}</p>
         </div>
@@ -12,11 +11,10 @@
             <button @click="toggleComposition(false)" class="audio_btn">Мои аудио</button>
             <button @click="visible_modal" class="btn_add">Добавить произведение</button>
         </div>
-
         <div class="author_content">
             <div class="content" v-if="visible_text">
                 <table class="table_text" v-if="arr_scripts !== undefined">
-                    <tr v-for="(text, number) in arr_scripts">
+                    <tr v-for="(text, number) in compositions_text" :key="number">
                         <td class="counter_text">{{ number + 1 }}</td>
                         <td class="text_item">
                             <router-link
@@ -25,10 +23,7 @@
                             </router-link>
                         </td>
                         <td class="btn_container">
-                            <button class="edit_btn">Редактировать</button>
-                        </td>
-                        <td class="btn_container">
-                            <button class="del_btn">Удалить</button>
+                            <button @click="delete_text(text.id)" class="del_btn">Удалить</button>
                         </td>
                     </tr>
                 </table>
@@ -67,7 +62,6 @@
             </template>
         </ModalLoading>
     </div>
-
 </template>
 
 <script>
@@ -118,6 +112,9 @@ export default {
         },
         toggle_disabled() {
             return this.confirm_input
+        },
+        compositions_text() {
+            return this.arr_scripts
         }
     },
     methods: {
@@ -182,9 +179,22 @@ export default {
                 this.close_modal()
             })
         },
+
+        delete_text(id_text) {
+            let deleteData = {
+                textId: id_text,
+                authorId: this.getIdUser
+            }
+            axios.post('/delete_text', deleteData).then((response) => {
+                this.arr_scripts = this.arr_scripts.filter(item => item.id !== id_text)
+                console.log(response.data)
+            })
+        },
+
         visible_modal() {
             this.modal_add = true
         },
+
         close_modal() {
             this.modal_add = false
         }

@@ -97,12 +97,38 @@ class CompositionController extends Controller
         ];
     }
 
-    public function editComposition(Request $request){
-
+    public function editComposition(Request $request)
+    {
         $authorId = $request->idAuthor;
         $textId = $request->idText;
         $text = $request->text;
 
         return json_encode($this->composition->editComposition($authorId, $textId, $text));
+    }
+
+    public function delete_text(Request $request)
+    {
+        $textId = $request->textId;
+        $authorId = $request->authorId;
+
+        $this->composition->deleteComposition($textId, $authorId);
+
+        $delComposition = $this->composition::find($textId);
+        $delComposition->delete();
+
+        return $delComposition;
+    }
+
+    public function delete_audio(Request $request)
+    {
+        $audioId = $request->audioId;
+        $authorId = $request->authorId;
+
+        $this->composition->delete_audio($audioId, $authorId);
+
+        $delComposition = $this->composition::find($audioId);
+        $delComposition->delete();
+
+        return $delComposition;
     }
 }

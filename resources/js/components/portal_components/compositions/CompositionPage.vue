@@ -1,5 +1,6 @@
 <template>
     <div class="container">
+        <button @click="toHomePage" class="editBtn">Мой профиль</button>
         <div class="content_area"></div>
         <p class="composition_title">{{this.name_composition}}</p>
         <button v-if="this.disabled" @click="openEdit" class="editBtn">Редактировать</button>
@@ -12,6 +13,7 @@
 
 <script>
 import axios from "axios";
+import router from "../../../router";
 export default {
     name: "CompositionPage",
     data() {
@@ -34,12 +36,25 @@ export default {
             })
         },
         openEdit() {
-
             this.disabled = false
         },
 
         save_composition() {
+            let data = {
+                idAuthor: this.composition_data.author_id,
+                idText: this.composition_data.text_id,
+                text: this.text
+            }
+
+            axios.post('/edit_composition', data).then((response) => {
+                console.log(response.data)
+            })
+
             this.disabled = true
+        },
+
+        toHomePage(){
+            router.push({name: 'HomePage'})
         }
     },
     beforeMount() {

@@ -11,13 +11,15 @@
                 </audio>
             </td>
             <td>
-                <button class="del_btn">Удалить</button>
+                <button @click="delete_audio(audio.id, audio.author_id)" class="del_btn">Удалить</button>
             </td>
         </tr>
     </table>
 </template>
 
 <script>
+
+import axios from "axios";
 
 export default {
     name: "AudioPanel",
@@ -35,11 +37,23 @@ export default {
                     new URL(`../../../../storage/app/public/compositions/${item.id_author}/audio/${item.id}.mp3`, import.meta.url)
                 this.tracks.push({
                     id: item.id,
+                    author_id: item.id_author,
                     author: `${this.getLastName} ${this.getFirstName}`,
                     name_composition: item.name_composition,
                     src: file_way
                 })
 
+            })
+        },
+
+        delete_audio(id_audio, author_id) {
+            let delete_data = {
+                audioId: id_audio,
+                authorId: author_id
+            }
+            axios.post('/delete_audio', delete_data).then((response) => {
+                console.log(response.data)
+                this.arr_audio = this.arr_audio.filter(item => item.id !== id_audio)
             })
         }
     },
