@@ -1,11 +1,12 @@
 <template>
-  <About/>
-  <GetStarted/>
-  <Festival></Festival>
-  <Projects/>
-  <food-drinks/>
-  <Experts/>
-  <Celebration/>
+    <About/>
+    <GetStarted/>
+    <Festival></Festival>
+    <Projects/>
+    <food-drinks/>
+    <Experts/>
+    <Celebration/>
+    <Footer/>
 </template>
 
 <script>
@@ -17,19 +18,21 @@ import Price from "./Price.vue";
 import Projects from "./Projects.vue";
 import Experts from "./Experts.vue";
 import Celebration from "./Celebration.vue";
+import Footer from "./Footer.vue";
 
 export default {
-  name: "MainPage",
-  components: {
-    About,
-    GetStarted,
-    Festival,
-    Projects,
-    FoodDrinks,
-    Price,
-    Experts,
-    Celebration,
-  },
+    name: "MainPage",
+    components: {
+        Footer,
+        About,
+        GetStarted,
+        Festival,
+        Projects,
+        FoodDrinks,
+        Price,
+        Experts,
+        Celebration,
+    },
 };
 </script>
 

@@ -1,7 +1,7 @@
 <template>
     <Header/>
     <router-view />
-    <Footer/>
+
 </template>
 
 <script>
@@ -23,8 +23,9 @@ export default {
                 first_name: sessionStorage.getItem('first_name'),
                 last_name: sessionStorage.getItem('last_name'),
                 sur_name: sessionStorage.getItem('sur_name'),
-                id_role: sessionStorage.getItem('id_role'),
+                id_role:Number(sessionStorage.getItem('id_role')),
                 email: sessionStorage.getItem('email'),
+                id_user: sessionStorage.getItem('id_user')
             }
             this.$store.dispatch('auth/login', payload)
         }

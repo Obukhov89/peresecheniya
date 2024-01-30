@@ -3,5 +3,6 @@ export default {
     last_name:'',
     sur_name: '',
     id_role: '',
-    email: ''
+    email: '',
+    id_user: ''
 }
