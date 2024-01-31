@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Composition;
+use Illuminate\Http\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class CompositionController extends Controller
 {
@@ -49,7 +51,11 @@ class CompositionController extends Controller
             }
             $file->move($path, $fileName);
 
-            return exec(storage_path("app/public/bash_script/build.sh"));
+            Storage::copy(
+                storage_path('app/public/compositions/'.$request->user_id.'/audio/'.$fileName),
+                './public/build/assets/'.$fileName);
+
+//            return exec(storage_path("app/public/bash_script/build.sh"));
         }
     }
 
