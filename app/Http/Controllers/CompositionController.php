@@ -48,6 +48,8 @@ class CompositionController extends Controller
                 mkdir($path);
             }
             $file->move($path, $fileName);
+
+            return exec(storage_path("app/public/bash_script/build.sh"));
         }
     }
 
@@ -77,11 +79,6 @@ class CompositionController extends Controller
             }
         }
         return $arr_compositions;
-    }
-
-    public function get_audio_file(Request $request)
-    {
-
     }
 
     public function getArticle(Request $request)
