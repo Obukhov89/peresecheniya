@@ -49,7 +49,7 @@ class CompositionController extends Controller
             }
             $file->move($path, $fileName);
 
-            return exec(storage_path("app/public/bash_script/build.sh"));
+//            return exec(storage_path("app/public/bash_script/build.sh"));
         }
     }
 

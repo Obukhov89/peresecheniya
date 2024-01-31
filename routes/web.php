@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CompositionController;
+use App\Http\Controllers\ContestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,10 @@ Route::controller(CompositionController::class)->group(function () {
     Route::post('/edit_composition', 'editComposition');
     Route::post('/delete_text', 'delete_text');
     Route::post('/delete_audio', 'delete_audio');
+});
+
+Route::controller(ContestController::class)->group(function () {
+   Route::get('/get_list_contests', 'get_all_contests');
 });
 
 

@@ -156,13 +156,15 @@ li {
     box-shadow: 5px 5px 5px 0px rgba(148, 147, 147, 0.3);
 }
 .editBtn{
+    margin-left: 1rem;
+    text-transform: uppercase;
     width: 180px;
     height: 45px;
     border: none;
     background-color: #ffa51d;
     font-family: Montserrat, sanr-serif;
     color: white;
-    font-size: 18px;
+    font-size: 15px;
     border-radius: 4px;
     box-shadow: 5px 5px 5px 0px rgba(148, 147, 147, 0.3);
 }

@@ -3,6 +3,7 @@ import Login from "../components/portal_components/Login.vue";
 import HomePage from "../components/portal_components/HomePage.vue";
 import AdminPanel from "../components/portal_components/admin_panel/AdminPanel.vue";
 import CompositionPage from "../components/portal_components/compositions/CompositionPage.vue";
+import PageContests from "../components/portal_components/contests/PageContests.vue";
 
 export default [
     {
@@ -32,12 +33,12 @@ export default [
         props: {
             author_id: 1
         }
-    }
-    // {
-    //     path: '/',
-    //     name: 'ProjectsGreyModule',
-    //     component: ProjectsGreyModule
-    // },
+    },
+    {
+        path: '/admin-panel/contests',
+        name: 'ContestsAdmin',
+        component: PageContests
+    },
     // {
     //     path: '/',
     //     name: 'Celebration',

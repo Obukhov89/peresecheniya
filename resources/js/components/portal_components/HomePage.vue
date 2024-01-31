@@ -27,13 +27,13 @@
                         </td>
                     </tr>
                 </table>
-                <p v-else class="name_heading">Здесь нет текста</p>
+                <p v-else class="name_heading">Нет произведений</p>
             </div>
             <div class="content" v-else>
                 <div class="table_audio" v-if="arr_audio !== undefined">
                     <AudioPanel :audio_list="this.arr_audio"/>
                 </div>
-                <p v-else class="name_heading">Здесь нет песен</p>
+                <p v-else class="name_heading">Нет произведений</p>
             </div>
         </div>
         <ModalLoading v-if="modal_add">
@@ -330,11 +330,8 @@ export default {
 
 .author_content {
     text-align: center;
-    margin-top: 10px;
-    background-color: #f3f2f2;
-    height: 500px;
+    margin-top: 50px;
     border-radius: 3px;
-    box-shadow: 5px 5px 5px 2px rgba(102, 102, 102, 0.3);
 }
 
 .btnClose {
