@@ -1,29 +1,61 @@
 <template>
     <div class="container">
-        <div class="contests_area">
-            <button class="editBtn new_contest_btn">новый конкурс</button>
+        <div class="container_contest_list">
+            <table class="contest_list" v-if="this.getContestList.length !== 0">
+                <thead>
+                    <tr>
+                        <th>№</th>
+                        <th>Название конкурса</th>
+                        <th>Дата начала</th>
+                        <th>Дата окончания</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(contest, number) in this.getContestList">
+                        <td>{{number + 1}}</td>
+                        <td>
+                            <router-link
+                                :to="{name: 'ItemContest', query:{ contest_id: contest.id_contest} }" class="link_contest">
+                                {{contest.contest_name}}{{contest.id}}
+                            </router-link>
+                        </td>
+                        <td>{{contest.date_start}}</td>
+                        <td>{{contest.date_end}}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
-    <add-modal>
-        <template v-slot:header_modal>
-            <p class="header_modal">Новый конкурс</p>
-        </template>
-        <template v-slot:btnClose>
-            <button class="btn_close">X</button>
-        </template>
-    </add-modal>
-
 </template>
 
 <script>
 import axios from "axios";
-import AddModal from "../../../modal/AddModal.vue";
+import month_name from "../help_functions/month_name";
+
 export default {
     name: "PageContests",
-    components: {AddModal},
+    components: {},
     data() {
-        return{
-            arr_contests: []
+        return {
+            arr_contests: [],
+        }
+    },
+    computed:{
+        getContestList() {
+            let new_arr = []
+            this.arr_contests.forEach((item, index) => {
+                let start = new Date(item.date_start);
+                let end = new Date(item.date_end)
+                let name_month_start = month_name(start.getMonth() + 1);
+                let name_month_end  = month_name(end.getMonth() + 1);
+                new_arr.push({
+                    id_contest: item.id,
+                    contest_name: item.contest_name,
+                    date_start: `${start.getDate()} ${name_month_start} ${start.getFullYear()}`,
+                    date_end: `${end.getDate()} ${name_month_end} ${end.getFullYear()}`
+                })
+            })
+            return new_arr;
         }
     },
     methods: {
@@ -32,7 +64,8 @@ export default {
                 this.arr_contests = response.data
                 console.log(this.arr_contests)
             })
-        }
+        },
+
     },
     beforeMount() {
         this.getAllContests()
@@ -41,24 +74,36 @@ export default {
 </script>
 
 <style scoped>
-    .contests_area{
-        margin-top: 40px;
-    }
-    .new_contest_btn{
-        float: right;
-    }
-    .header_modal {
-        font-family: Montserrat, sans-serif;
-        font-size: 18px;
-        color: #eeeeee;
-    }
-    .btn_close{
-        width: 35px;
-        height: 35px;
-        border: none;
-        background-color: #ffa51d;
-        color: #eeeeee;
-        font-size: 16px;
-        margin-left: 280px;
-    }
+
+.contest_list{
+    padding-top: 80px;
+    width: 100%;
+}
+
+.contest_list th{
+    text-align: center;
+    font-family: Montserrat, sans-serif;
+    font-size: 16px;
+    color: #4b5563;
+    border-bottom: 1px solid #4b5563;
+}
+
+.contest_list tr{
+    text-align: center;
+    font-family: Montserrat, sans-serif;
+    font-size: 16px;
+    color: #4b5563;
+    border-bottom: 1px solid #4b5563;
+}
+
+.link_contest{
+    text-decoration: none;
+    font-family: Montserrat, sans-serif;
+    font-size: 16px;
+    color: #4b5563;
+}
+
+.contest_list td{
+    height: 55px;
+}
 </style>

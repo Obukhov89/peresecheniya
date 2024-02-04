@@ -1,7 +1,7 @@
 <template>
     <transition name="modal-fade">
         <div class="modal-backdrop">
-            <div class="modal_loading"
+            <div class="modal_contest"
                  role="dialog"
                  aria-labelledby="modalTitle"
                  aria-describedby="modalDescription">
@@ -40,10 +40,10 @@ export default {
 
 }
 
-.modal {
+.modal_contest {
     margin-top: 50px;
-    width: 500px;
-    height: 250px;
+    width: 650px;
+    height: 550px;
     background: #FFFFFF;
     box-shadow: 2px 2px 20px 1px;
     overflow-x: auto;

@@ -4,6 +4,7 @@ import HomePage from "../components/portal_components/HomePage.vue";
 import AdminPanel from "../components/portal_components/admin_panel/AdminPanel.vue";
 import CompositionPage from "../components/portal_components/compositions/CompositionPage.vue";
 import PageContests from "../components/portal_components/contests/PageContests.vue";
+import ItemContest from "../components/portal_components/contests/ItemContest.vue";
 
 export default [
     {
@@ -39,9 +40,12 @@ export default [
         name: 'ContestsAdmin',
         component: PageContests
     },
-    // {
-    //     path: '/',
-    //     name: 'Celebration',
-    //     component: Celebration
-    // }
+    {
+        path: '/contest/:contest_id?/',
+        name: 'ItemContest',
+        component: ItemContest,
+        props: {
+            contest_id: 1
+        }
+    }
 ];

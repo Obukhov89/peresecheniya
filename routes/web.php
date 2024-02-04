@@ -40,6 +40,9 @@ Route::controller(CompositionController::class)->group(function () {
 
 Route::controller(ContestController::class)->group(function () {
    Route::get('/get_list_contests', 'get_all_contests');
+   Route::post('/save_contest_with_text', 'save_new_contest_text');
+   Route::post('/save_contest_with_file', 'save_new_contest_file');
+   Route::post('/get_info_contest', 'get_contest_item');
 });
 
 
