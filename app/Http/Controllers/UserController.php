@@ -40,4 +40,24 @@ class UserController
 
         return $user_data;
     }
+    public function load_avatar(Request $request)
+    {
+        $user_id = $request->user_id;
+        $file = $request->file('file');
+        $path = storage_path('app/public/avatars/'.$user_id.'/');
+
+        if (!is_dir($path)){
+            mkdir($path, 777);
+        }
+
+        $file_name = $user_id.'.jpg';
+
+        return $file->move($path, $file_name);
+    }
+
+    public function getAllUsers()
+    {
+        $user = new User();
+        return $user::all();
+    }
 }

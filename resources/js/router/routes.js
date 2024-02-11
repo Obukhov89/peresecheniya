@@ -5,6 +5,7 @@ import AdminPanel from "../components/portal_components/admin_panel/AdminPanel.v
 import CompositionPage from "../components/portal_components/compositions/CompositionPage.vue";
 import PageContests from "../components/portal_components/contests/PageContests.vue";
 import ItemContest from "../components/portal_components/contests/ItemContest.vue";
+import AudioPage from "../components/portal_components/compositions/AudioPage.vue";
 
 export default [
     {
@@ -47,5 +48,18 @@ export default [
         props: {
             contest_id: 1
         }
-    }
+    },
+    {
+        path: '/contests',
+        name: 'ListContests',
+        component: PageContests
+    },
+    {
+        path: "/audioCompositionPage/:author_id?/:composition_id?/:id_contest?",
+        name: "AudioCompositionPage",
+        component: AudioPage,
+        props: {
+            author_id: 1
+        }
+    },
 ];

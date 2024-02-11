@@ -30,6 +30,7 @@ class RegistrationController extends Controller
         $newItem->phone = $request->tel;
         $newItem->email = $request->email;
         $newItem->id_role = $request->id_role;
+        $newItem->password = $request->password;
 
         $newItem->save();
         return $newItem;
@@ -51,6 +52,7 @@ class RegistrationController extends Controller
             $user = new User();
             $user->name = $value->name;
             $user->email = $value->email;
+            $user->password = Hash::make($value->password);
             $user->save();
             $lastId = DB::select("select *  from `users` ORDER BY id DESC LIMIT 1");
             $maxId = 0;

@@ -1,5 +1,8 @@
 <template>
     <div class="container">
+        <div class="container_buttons-nav">
+            <button @click="goHomePage" class="editBtn">В профиль</button>
+        </div>
         <div class="container_contest_list">
             <table class="contest_list" v-if="this.getContestList.length !== 0">
                 <thead>
@@ -31,6 +34,7 @@
 <script>
 import axios from "axios";
 import month_name from "../help_functions/month_name";
+import router from "../../../router";
 
 export default {
     name: "PageContests",
@@ -59,6 +63,9 @@ export default {
         }
     },
     methods: {
+        goHomePage() {
+            router.push({name: 'HomePage'})
+        },
         getAllContests() {
             axios.get('/get_list_contests').then((response) => {
                 this.arr_contests = response.data

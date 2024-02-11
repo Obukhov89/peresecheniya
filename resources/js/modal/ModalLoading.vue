@@ -8,7 +8,7 @@
                 <header
                     class="modal-header"
                     id="modalTitle">
-                    <p class="modal-header-text">Загрузка нового произведения</p>
+                    <slot name="heading"><p class="modal-header-text">Загрузка нового произведения</p></slot>
                     <slot name="btnClose"></slot>
                 </header>
                 <div>

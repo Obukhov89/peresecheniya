@@ -94,6 +94,14 @@ class CompositionController extends Controller
         ];
     }
 
+    public function getAudioComposition(Request $request)
+    {
+        $compositionId = $request->id_composition;
+        $query = DB::select("select `name_composition` from `compositions` where `id` =:id", ['id' => $compositionId]);
+
+        return $query[0]->name_composition;
+    }
+
     public function editComposition(Request $request)
     {
         $authorId = $request->idAuthor;
@@ -127,5 +135,11 @@ class CompositionController extends Controller
         $delComposition->delete();
 
         return $delComposition;
+    }
+
+    public function get_names_compositions(Request $request)
+    {
+        return DB::select('select * from `compositions` where `author_id` =:author_id',
+            ['author_id' => $request->user_id]);
     }
 }

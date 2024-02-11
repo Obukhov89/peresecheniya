@@ -20,6 +20,8 @@
                     <input class="inputReg" type="text" id="tel" v-model="data.tel">
                     <label class="label_reg" for="email">Email:</label>
                     <input type="text" class="inputReg" id="email" v-model="data.email">
+                    <label class="label_reg" for="password">Пароль:</label>
+                    <input type="password" class="inputReg" id="password" v-model="data.password">
                     <button @click="registration" class="btn_orange">Отправить</button>
                 </form>
             </div>
@@ -58,6 +60,7 @@ export default {
                 tel:'',
                 email:'',
                 id_role:2,
+                password: ''
             }
         }
     },
@@ -73,6 +76,7 @@ export default {
             this.data.fio = '';
             this.data.email = '';
             this.data.tel = '';
+            this.data.password = '';
             router.push({name: "Header", hash:"#header"})
         }
     }

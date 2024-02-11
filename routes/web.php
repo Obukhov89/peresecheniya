@@ -25,9 +25,10 @@ Route::post('/registration', [RegistrationController::class, 'new_registration']
 Route::get('get_turn_request', [RegistrationController::class, 'get_turn_request']);
 Route::post('/request_accept', [RegistrationController::class, 'save_user']);
 Route::post('/request_reject', [RegistrationController::class, 'delete_request']);
-Route::get('/regAdmin', [RegistrationController::class, 'reg_admin']);
 
 Route::post('/login', [UserController::class, 'login']);
+Route::post('/load_avatar', [UserController::class, 'load_avatar']);
+Route::get('/getUserList', [UserController::class, 'getAllUsers']);
 
 Route::controller(CompositionController::class)->group(function () {
     Route::post('/downloadComposition', 'download_composition');
@@ -36,6 +37,8 @@ Route::controller(CompositionController::class)->group(function () {
     Route::post('/edit_composition', 'editComposition');
     Route::post('/delete_text', 'delete_text');
     Route::post('/delete_audio', 'delete_audio');
+    Route::post('/get_names_compositions', 'get_names_compositions');
+    Route::post('/getAudioComposition', 'getAudioComposition');
 });
 
 Route::controller(ContestController::class)->group(function () {
@@ -43,6 +46,11 @@ Route::controller(ContestController::class)->group(function () {
    Route::post('/save_contest_with_text', 'save_new_contest_text');
    Route::post('/save_contest_with_file', 'save_new_contest_file');
    Route::post('/get_info_contest', 'get_contest_item');
+   Route::post('/accept_judge', 'accept_judge');
+   Route::post('/get_judges', 'get_judges_contest');
+   Route::post('/new_composition_to_contest', 'newCompositionToContest');
+   Route::post('/postCompositionToContest', 'postCompositionToContest');
+   Route::post('/getContestParticipantsList', 'getContestParticipantsList');
 });
 
 

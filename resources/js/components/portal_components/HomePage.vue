@@ -4,11 +4,18 @@
             <button class="btn_admin" @click="goAdmin" v-if="admin">Панель администратора</button>
         </div>
         <div class="name_container">
-            <p class="name_heading">{{ getFirstName }} {{ getLastName }}</p>
+            <Avatar @click="addAvatar" class="user_ava" :name="this.fullName"
+                    :imageSrc='this.avatar'
+                    size="90"
+                    background="#ffa51d"
+                    color="white"/>
+
         </div>
+        <p class="name_heading">{{ getFirstName }} {{ getLastName }}</p>
         <div class="content_header">
             <button @click="toggleComposition(true)" class="text_btn">Мои произведения</button>
             <button @click="toggleComposition(false)" class="audio_btn">Мои аудио</button>
+            <button @click="goContests" class="contest_btn">Конкурсы</button>
             <button @click="visible_modal" class="btn_add">Добавить произведение</button>
         </div>
         <div class="author_content">
@@ -62,6 +69,21 @@
             </template>
         </ModalLoading>
     </div>
+    <Modal v-if="modal_avatar">
+        <template v-slot:heading>
+            <div class="add_avatar_heading">
+                <p class="add_avatar_text">Загрузка нового аватара</p>
+                <button @click="close_avatar" class="btn_close">X</button>
+            </div>
+        </template>
+        <template v-slot:info>
+            <form enctype="multipart/form-data" class="form_avatar" method="post" @submit.prevent="onsubmit">
+                <p class="info_form">Для загрузки нового аватара, выберете фото.</p>
+                <input @change="chek_file_avatar" class="input_file" type="file">
+                <button @click="save_avatar" class="btn_save" :disabled="toggle_disabled">Сохранить</button>
+            </form>
+        </template>
+    </Modal>
 </template>
 
 <script>
@@ -71,10 +93,12 @@ import ModalLoading from "../../modal/ModalLoading.vue";
 import axios from "axios";
 import router from "../../router";
 import AudioPanel from "./AudioPanel.vue";
+import Avatar from "vue3-avatar";
+import Modal from "../../modal/Modal.vue";
 
 export default {
     name: "HomePage",
-    components: {AudioPanel, ModalLoading},
+    components: {Modal, AudioPanel, ModalLoading, Avatar},
     data() {
         return {
             admin: false,
@@ -90,6 +114,10 @@ export default {
             modal_add: false,
             arr_scripts: [],
             arr_audio: [],
+            avatar: '',
+            fullName: '',
+            modal_avatar: false,
+            file_avatar: null
         }
     },
     computed: {
@@ -122,9 +150,31 @@ export default {
             router.push({name: 'AdminPanel'})
         },
         printId() {
+            this.fullName = `${this.getFirstName} ${this.getLastName}`
+            this.avatar =  new URL(`../../../../storage/app/public/avatars/${this.getIdUser}/${this.getIdUser}.jpg`, import.meta.url).href
             if (this.getAdmin === 1) {
                 this.admin = true
             }
+        },
+        chek_file_avatar(e) {
+            this.file_avatar = e.target.files[0]
+            if (this.file_avatar.type !== 'image/jpeg') {
+                alert('Допустимы файлы только с расширением .jpeg ! загрузите подходящий файл')
+            } else {
+                this.confirm_input = false
+            }
+        },
+        save_avatar() {
+            let data = new FormData();
+            data.set('user_id', this.getIdUser);
+            data.set('file', this.file_avatar);
+
+            axios.post('/load_avatar', data).then((response) => {
+                this.close_avatar()
+            })
+        },
+        close_avatar() {
+            this.modal_avatar = false
         },
         getCompositions() {
             let data = {
@@ -138,7 +188,10 @@ export default {
                 }
             })
         },
-
+        addAvatar() {
+            this.modal_avatar = true
+            console.log('yes')
+        },
         toggleComposition(instance) {
             this.visible_text = instance
         },
@@ -191,6 +244,10 @@ export default {
             })
         },
 
+        goContests() {
+            router.push({name: 'ListContests'})
+        },
+
         visible_modal() {
             this.modal_add = true
         },
@@ -202,6 +259,7 @@ export default {
     beforeMount() {
         this.printId()
         this.getCompositions()
+
     },
 }
 </script>
@@ -209,6 +267,58 @@ export default {
 <style scoped>
 .container_content {
     height: 100vh;
+}
+
+.add_avatar_heading {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.add_avatar_text {
+    font-family: Montserrat, sans-serif;
+    font-size: 18px;
+}
+
+.form_avatar {
+    width: 100%;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info_form {
+    font-family: Montserrat, sans-serif;
+    font-size: 18px;
+    color: #4b5563;
+}
+
+.input_file {
+    margin-top: 30px;
+    width: 280px;
+    height: 25px;
+    border: 2px solid #4b5563;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+input[type=file]::file-selector-button {
+    width: 120px;
+    height: 25px;
+    background-color: #ffa51d;
+    color: #eeeeee;
+    border: none;
+    border-radius: 3px;
+    font-family: Montserrat, sans-serif;
+}
+
+.btn_close {
+    background-color: #ffa51d;
+    border: none;
+    color: #eeeeee;
+    font-size: 16px;
 }
 
 .btn_admin {
@@ -226,13 +336,17 @@ export default {
 
 .name_container {
     margin-top: 40px;
-    text-align: center;
+}
+
+.user_ava {
+    font-family: Montserrat, sans-serif;
 }
 
 .name_heading {
     font-family: "Montserrat", sanr-serif;
     color: #4b5563;
     font-size: 20px;
+    padding-top: 40px;
 }
 
 .content_header {
@@ -251,6 +365,20 @@ export default {
     text-transform: uppercase;
     box-shadow: 5px 5px 5px 0px rgba(148, 147, 147, 0.3);
 }
+
+.contest_btn{
+    margin-left: 10px;
+    width: 180px;
+    height: 45px;
+    border: none;
+    background-color: #ffa51d;
+    font-family: "Montserrat", sanr-serif;
+    font-size: 16px;
+    color: #ffffff;
+    text-transform: uppercase;
+    box-shadow: 5px 5px 5px 0px rgba(148, 147, 147, 0.3);
+}
+
 .edit_btn {
     width: 140px;
     height: 30px;
@@ -316,7 +444,7 @@ export default {
 }
 
 .btn_add {
-    margin-left: 625px;
+    margin-left: 415px;
     width: 180px;
     height: 45px;
     border: none;
@@ -342,49 +470,5 @@ export default {
     background-color: #ffa51d;
     color: #eeeeee;
     margin-left: 130px;
-}
-
-.form_composition {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-}
-
-#title_composition {
-    padding-left: 10px;
-    width: 395px;
-    height: 35px;
-    border: 1px solid #ffa51d;
-    margin-left: 50px;
-    margin-top: 10px;
-    border-radius: 3px;
-}
-
-.type_content {
-    margin-top: 1rem;
-    display: flex;
-    justify-content: space-evenly;
-
-}
-
-.input_label {
-    font-family: Montserrat, sans-serif;
-    margin-left: 50px;
-}
-
-.input_label_type_content {
-    font-family: Montserrat, sans-serif;
-    padding: 5px 5px 0 0;
-}
-
-.content_file {
-    margin: 20px auto;
-}
-
-.btn_save:disabled,
-.btn_save[disabled] {
-    border: 1px solid #999999;
-    background-color: #cccccc;
-    color: #666666;
 }
 </style>

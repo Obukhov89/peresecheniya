@@ -168,3 +168,53 @@ li {
     border-radius: 4px;
     box-shadow: 5px 5px 5px 0px rgba(148, 147, 147, 0.3);
 }
+
+.modal-header-text{
+    font-family: Montserrat, sans-serif;
+    font-size: 18px;
+}
+
+.type_content {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+.input_label {
+    font-family: Montserrat, sans-serif;
+    margin-left: 50px;
+}
+
+.input_label_type_content {
+    font-family: Montserrat, sans-serif;
+    padding: 5px 5px 0 0;
+}
+.form_composition {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+#title_composition {
+    padding-left: 10px;
+    width: 395px;
+    height: 35px;
+    border: 1px solid #ffa51d;
+    margin-left: 50px;
+    margin-top: 10px;
+    border-radius: 3px;
+}
+.content_file {
+    margin: 20px auto;
+}
+.btn_save:disabled,
+.btn_save[disabled] {
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+}
+.container_buttons-nav {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+}
