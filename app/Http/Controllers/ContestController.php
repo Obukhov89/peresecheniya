@@ -190,6 +190,12 @@ class ContestController extends Controller
                                  left join users as u on u.id = contest_participants.author_id
                                  left join compositions as c on c.id = contest_participants.id_composition
                                  where contest_participants.id_contest = :contest_id ',
-                                 ['contest_id' => $request->contest_id]);
+            ['contest_id' => $request->contest_id]);
+    }
+
+    public function getJudgeContest(){
+        return DB::select('select u.id as id_user, u.name from users as u
+                                left join judges on judges.id_user = u.id
+                                left join contests on judges.id_contest = contests.id where contests.status = "new"');
     }
 }

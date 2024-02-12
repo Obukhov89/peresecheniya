@@ -39,6 +39,7 @@ Route::controller(CompositionController::class)->group(function () {
     Route::post('/delete_audio', 'delete_audio');
     Route::post('/get_names_compositions', 'get_names_compositions');
     Route::post('/getAudioComposition', 'getAudioComposition');
+
 });
 
 Route::controller(ContestController::class)->group(function () {
@@ -51,6 +52,7 @@ Route::controller(ContestController::class)->group(function () {
    Route::post('/new_composition_to_contest', 'newCompositionToContest');
    Route::post('/postCompositionToContest', 'postCompositionToContest');
    Route::post('/getContestParticipantsList', 'getContestParticipantsList');
+   Route::get('/getJudgeNewContest', 'getJudgeContest');
 });
 
 
