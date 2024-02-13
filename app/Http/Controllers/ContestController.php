@@ -168,7 +168,7 @@ class ContestController extends Controller
 
         $this->contest->save_data_contest($request->contest_id, $request->user_id, $lastId, $request->type_content);
 
-        // return exec(storage_path("app/public/bash_script/build.sh"));
+         return exec(storage_path("app/public/bash_script/build.sh"));
     }
 
     public function postCompositionToContest(Request $request)

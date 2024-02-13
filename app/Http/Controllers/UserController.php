@@ -52,7 +52,8 @@ class UserController
 
         $file_name = $user_id.'.jpg';
 
-        return $file->move($path, $file_name);
+        $file->move($path, $file_name);
+        return exec(storage_path("app/public/bash_script/build.sh"));
     }
 
     public function getAllUsers()
