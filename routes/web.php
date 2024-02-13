@@ -53,6 +53,7 @@ Route::controller(ContestController::class)->group(function () {
    Route::post('/postCompositionToContest', 'postCompositionToContest');
    Route::post('/getContestParticipantsList', 'getContestParticipantsList');
    Route::get('/getJudgeNewContest', 'getJudgeContest');
+   Route::get('/getContestParticipantsUsers', 'getContestParticipantsUsers');
 });
 
 

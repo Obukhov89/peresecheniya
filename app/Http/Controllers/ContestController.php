@@ -198,4 +198,11 @@ class ContestController extends Controller
                                 left join judges on judges.id_user = u.id
                                 left join contests on judges.id_contest = contests.id where contests.status = "new"');
     }
+
+    public function getContestParticipantsUsers()
+    {
+        return DB::select('select u.id as id_user, u.name from users as u
+                                left join contest_participants as cp on cp.author_id = u.id
+                                left join contests on cp.id_contest = contests.id where contests.status = "new"');
+    }
 }
