@@ -25,38 +25,26 @@ export default {
                 {
                     image: "img/guitar.png",
                     card__title: "Автор",
-                    card__subtitle:
-                        "Neque porro quisquam est, qui dolor emr ipsum quia dolor sit amet, consec tetur is adipisci velit, sed quia non num.",
                 },
                 {
-                    image: "img/guitar.png ",
+                    image: "img/ispolnitel.jpg ",
                     card__title: "Исполнитель",
-                    card__subtitle:
-                        "Neque porro quisquam est, qui dolor emr ipsum quia dolor sit amet, consec tetur is adipisci velit, sed quia non num.",
                 },
                 {
-                    image: "img/guitar.png ",
+                    image: "img/kompositor.jpg ",
                     card__title: "Композитор",
-                    card__subtitle:
-                        "Neque porro quisquam est, qui dolor emr ipsum quia dolor sit amet, consec tetur is adipisci velit, sed quia non num.",
                 },
                 {
-                    image: "img/guitar.png ",
+                    image: "img/duet.jpg ",
                     card__title: "Дуэт",
-                    card__subtitle:
-                        "Neque porro quisquam est, qui dolor emr ipsum quia dolor sit amet, consec tetur is adipisci velit, sed quia non num.",
                 },
                 {
-                    image: "img/guitar.png ",
+                    image: "img/ansambl.jpg ",
                     card__title: "Ансамбль",
-                    card__subtitle:
-                        "Neque porro quisquam est, qui dolor emr ipsum quia dolor sit amet, consec tetur is adipisci velit, sed quia non num.",
                 },
                 {
-                    image: "img/guitar.png ",
+                    image: "img/poet.jpg ",
                     card__title: "Поэт",
-                    card__subtitle:
-                        "Neque porro quisquam est, qui dolor emr ipsum quia dolor sit amet, consec tetur is adipisci velit, sed quia non num.",
                 },
             ],
         };

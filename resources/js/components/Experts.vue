@@ -10,9 +10,9 @@
                             <h1 class="experts_name main_title">
                                 {{ expert.name }}
                             </h1>
-                            <p class="experts_work main_subtitle">
+                            <!-- <p class="experts_work main_subtitle">
                                 {{ expert.work }}
-                            </p>
+                            </p> -->
                             <p class="experts_work main_subtitle"></p>
                         </div>
                     </div>
@@ -42,43 +42,22 @@ export default {
         return {
             experts: [
                 {
-                    image: "img/KevinPeter.jpg",
-                    name: "Kevin Peter",
+                    image: "img/expert1.jpg",
+                    name: "Константин Просеков",
                     work: "Senior Architect",
                     description:
                         "Neque porro quisquam est, qui dolor emr ipsum quia dolor sit amet, consec tetur is adipisci velit, sed quia non num.",
                 },
                 {
-                    image: "img/KevinPeter.jpg",
-                    name: "Kevin Peter",
+                    image: "img/expert2.jpg",
+                    name: "Светлана Дехтярева - Перепёлкина",
                     work: "Senior Architect",
                     description:
                         "Neque porro quisquam est, qui dolor emr ipsum quia dolor sit amet, consec tetur is adipisci velit, sed quia non num.",
                 },
                 {
-                    image: "img/KevinPeter.jpg",
-                    name: "Kevin Peter",
-                    work: "Senior Architect",
-                    description:
-                        "Neque porro quisquam est, qui dolor emr ipsum quia dolor sit amet, consec tetur is adipisci velit, sed quia non num.",
-                },
-                {
-                    image: "img/KevinPeter.jpg",
-                    name: "Kevin Peter",
-                    work: "Senior Architect",
-                    description:
-                        "Neque porro quisquam est, qui dolor emr ipsum quia dolor sit amet, consec tetur is adipisci velit, sed quia non num.",
-                },
-                {
-                    image: "img/KevinPeter.jpg",
-                    name: "Kevin Peter",
-                    work: "Senior Architect",
-                    description:
-                        "Neque porro quisquam est, qui dolor emr ipsum quia dolor sit amet, consec tetur is adipisci velit, sed quia non num.",
-                },
-                {
-                    image: "img/KevinPeter.jpg",
-                    name: "Kevin Peter",
+                    image: "img/expert3.jpg",
+                    name: "Дмитрий Оксенчук",
                     work: "Senior Architect",
                     description:
                         "Neque porro quisquam est, qui dolor emr ipsum quia dolor sit amet, consec tetur is adipisci velit, sed quia non num.",
@@ -154,6 +133,7 @@ export default {
     background-color: #fff;
     width: 370px;
     object-fit: cover;
+    height: 100px;
 }
 
 .card img {
@@ -161,6 +141,7 @@ export default {
     object-fit: cover;
     padding: 0;
     margin: 0;
+    height: 360px
 }
 
 .name_judge {
@@ -186,7 +167,7 @@ export default {
 .main_title {
     color: #000;
     text-align: center;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
 
 .experts_work {

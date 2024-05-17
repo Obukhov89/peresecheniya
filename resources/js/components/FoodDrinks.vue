@@ -5,8 +5,9 @@
             <div class="food_drinks__grid" v-if="this.real_users.length === 0">
                 <Card v-for="card in cards" :key="card">
                     <div class="card">
-                        <img :src="card.image" alt="" /></div
-                ></Card>
+                        <p :src="card.header" alt="" >{{ card.header }}</p>
+                    </div>
+                </Card>
             </div>
             <div v-else class="food_drinks__grid">
                 <div class="judge_card" v-for="user in real_users">
@@ -20,7 +21,7 @@
                 </div>
             </div>
 
-                <button class="btn_orange"><a class="link_registration" href="#celebration">Зарегистрироваться</a></button>
+            <button class="btn_orange"><a class="link_registration" href="#celebration">Зарегистрироваться</a></button>
         </div>
     </div>
 </template>
@@ -35,34 +36,52 @@ export default {
         return {
             cards: [
                 {
-                    image: "img/avatar.png",
+                    header: "Валерий Афанасьев - Чуточка любви",
                 },
                 {
-                    image: "img/avatar.png ",
+                    header: "Георгий Балакин - Станция с названием КИСЕГАЧ",
                 },
                 {
-                    image: "img/avatar.png ",
+                    header: "Александр Белоусов - Домой",
                 },
                 {
-                    image: "img/avatar.png ",
+                    header: "Михаил Вахе aka Tin A. Hunter - Чуткие уши",
                 },
                 {
-                    image: "img/avatar.png ",
+                    header: "Светлана Гаврилова - Смерти нет",
                 },
                 {
-                    image: "img/avatar.png ",
+                    header: "Константин Грин - В прогнозах - Норд",
 
                 },
                 {
-                    image: "img/avatar.png ",
+                    header: "Игорь Замолотов - дедулино напутствие",
 
                 },
                 {
-                    image: "img/avatar.png ",
+                    header: "Екатерина Захарова aka Озерина - Пожелание другу",
 
                 },
                 {
-                    image: "img/avatar.png ",
+                    header: "Иван Зеленков - Самым близким друзьям",
+                },
+                {
+                    header: "Олеся Конопля - 20:09",
+                },
+                {
+                    header: "Мария Котлова - Колыбельная для внутреннего ребенка",
+                },
+                {
+                    header: "Михаил Куршин aka MLK - На лезвии",
+                },
+                {
+                    header: "Андрей Пономарев aka Андрей Даргоглов - Сон со среды на четверг",
+                },
+                {
+                    header: "Анна Соловьева aka Солованна - Кот-коуч",
+                },
+                {
+                    header: "Андрей Феттер - Этот мир",
                 },
             ],
             real_users: []
@@ -106,6 +125,13 @@ export default {
 }
 .card {
     box-shadow: 0px 5px 30px rgba(180, 180, 180, 0.381);
+    height: 100px;
+}
+.card p{
+    color: #000;
+    padding: 10%;
+    font-family: Montserrat, sans-serif;
+    font-size: 14px;
 }
 .judge_card{
     width: 190px;
