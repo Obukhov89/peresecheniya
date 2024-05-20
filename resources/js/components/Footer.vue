@@ -61,7 +61,7 @@ export default {
 
 .navbar {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-evenly;
     align-items: center;
     padding: 110px 0 90px;
 }
