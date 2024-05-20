@@ -1,7 +1,12 @@
 <template>
     <div id="navbar">
         <div class="container navbar">
-
+            <p class="text_for_niistrom">
+                При поддержке
+            </p>
+            <a style="color: #eeeeee; text-decoration: none" href="https://niistrom.ru">
+                <img class="logo_niistrom" src="../../../public/img/niistrom.png">
+            </a>
         </div>
     </div>
 </template>
@@ -49,16 +54,23 @@ export default {
     color: #fff;
 }
 
+.logo_niistrom{
+    width: 160px;
+    margin: 0 auto;
+}
+
 .navbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     padding: 110px 0 90px;
 }
-.main_title {
+.text_for_niistrom {
+    font-family: Montserrat, sans-serif;
     color: #fff;
-    font-size: 18px;
+    font-size: 22px;
     font-weight: 200;
+    text-transform: uppercase;
 }
 .main_subtitle {
     padding: 0 0 20px;

@@ -8,8 +8,7 @@
                         <img :src="card.image" alt="" />
                         <h3>{{ card.card__title }}</h3>
                         <p class="main_subtitle">{{ card.card__subtitle }}</p>
-                    </div></Card
-                >
+                    </div></Card>
             </div>
         </div>
     </div>
